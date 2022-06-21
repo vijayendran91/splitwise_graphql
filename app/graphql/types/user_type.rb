@@ -13,8 +13,13 @@ class Types::UserType < Types::BaseObject
   field :name_and_age, String, null: true
   field :age_in_months , Types::MonthOldType, null: true
 
+  field :bills, [Types::BillType], null: true
 
   def full_name
     "#{object.first_name} #{object.last_name}"
+  end
+
+  def bills
+    object.bills
   end
 end
